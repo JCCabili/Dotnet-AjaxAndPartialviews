@@ -1,0 +1,48 @@
+﻿
+<div>
+    Name:<input id="name" name="name" />
+    <br />
+    Lastname:<input id="lastName" name="lastName" />
+
+    <button onclick="Add()">Add</button>
+</div>
+
+<div id="value"></div>
+
+
+
+
+<script>
+    var number = 0;
+    var objectList = [];
+    function Add() {
+        var name = document.getElementById("name");
+        var lastName = document.getElementById("lastName");
+
+
+        number += 1;
+        var object = { ID: number, Name: name.value, LastName: lastName.value };
+        objectList.push(object);
+        console.log(objectList);
+        LoadTable();
+    }
+
+    function LoadTable() {
+        var html = "<table class='table table-sm table-bordered'>";
+        for (var i = 0; i < objectList.length; i++) {
+            html += "<tr>";
+            html += "<td>" + objectList[i].ID + "</td>";
+            html += "<td>" + objectList[i].Name + "</td>";
+            html += "<td>" + objectList[i].LastName + "</td>";
+            html += "</tr>";
+
+        }
+        html += "</table>";
+        document.getElementById("value").innerHTML = html;
+
+        document.getElementById("name").innerHTML = "";
+        document.getElementById("lastName").innerHTML;
+
+    }
+    
+</script>

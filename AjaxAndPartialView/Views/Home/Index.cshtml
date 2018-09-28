@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<form asp-action="All" asp-controller="Home" method="post" data-ajax="true" data-ajax-update="divStudentList">
+
+<input type="submit" />
+</form>
+<div id="divStudentList">
+
+</div>*@
+<button onclick="loadStudents()">Load Students</button>
+<div id="studentList">
+</div>
+@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+<script>
+    function loadStudents() {
+        $.ajax({
+            url: "Home/All",
+            typ: "GET",
+            success: function (response) {
+                $("#studentList").html(response)
+            }
+        });
+    }
+    
+</script>
